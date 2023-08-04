@@ -1,0 +1,248 @@
+﻿@*@model slider
+@{
+    viewdata["title"] = "create";
+}
+
+<style>
+    /* custom button style */
+    .custom-button {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* custom button hover style */
+    .custom-button:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+        color: #fff;
+    }
+
+    /* form styling */
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    /* form layout */
+    .form-row {
+        margin-bottom: 15px;
+    }
+
+    .col-md-3 {
+        width: 100%; /* adjusted width */
+        padding: 0 10px;
+    }
+
+    .col-md-2 {
+        width: 100%; /* adjusted width */
+        padding: 0 10px;
+    }
+
+    .col-md-12 {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* center and right alignment */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; /* changed to 100% */
+        width: 100%; /* changed to 100% */
+        background-color: #f5f5f5; /* change the background color here */
+    }
+
+    .form-wrapper {
+        max-width: 1600px; /* adjust the value to make the form larger */
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 20px; /* add margin to create spacing from the edges */
+    }
+</style>
+
+<script>
+    function showalert() {
+        alert("create button clicked!");
+    }
+</script>
+
+<div class="form-container">
+    <div class="form-wrapper">
+        <h1>create slider</h1>
+        <form method="post" asp-action="create" enctype="multipart/form-data" class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="title1" class="form-label">title 1</label>
+                <input class="form-control" asp-for="title1" placeholder="title 1">
+                <span class="text-danger" asp-validation-for="title1"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="title2" class="form-label">title 2</label>
+                <input class="form-control" asp-for="title2" placeholder="title 2">
+                <span class="text-danger" asp-validation-for="title2"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="title3" class="form-label">title 3</label>
+                <input class="form-control" asp-for="title3" placeholder="title 3">
+                <span class="text-danger" asp-validation-for="title3"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="description" class="form-label">description</label>
+                <input class="form-control" asp-for="description" placeholder="description">
+                <span class="text-danger" asp-validation-for="description"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="url" class="form-label">url</label>
+                <input class="form-control" asp-for="url" placeholder="url">
+                <span class="text-danger" asp-validation-for="url"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="fromfile" class="form-label">fromfile</label>
+                <input type="file" class="form-control" asp-for="fromfile" placeholder="fromfile">
+                <span class="text-danger" asp-validation-for="fromfile"></span>
+            </div>
+
+            <div class="col-12" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary custom-button" onclick="showalert()">create</button>
+            </div>
+        </form>
+    </div>
+</div>
+*@
+@model Slider
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    /* Custom button style */
+    .custom-button {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Custom button hover style */
+    .custom-button:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+        color: #fff;
+    }
+
+    /* Form styling */
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    /* Form layout */
+    .form-row {
+        margin-bottom: 15px;
+    }
+
+    .col-md-3 {
+        width: 100%; /* Adjusted width */
+        padding: 0 10px;
+    }
+
+    .col-md-2 {
+        width: 100%; /* Adjusted width */
+        padding: 0 10px;
+    }
+
+    .col-md-12 {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* Center and right alignment */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; /* Changed to 100% */
+        width: 100%; /* Changed to 100% */
+        background-color: #f5f5f5; /* Change the background color here */
+    }
+
+    .form-wrapper {
+        max-width: 1600px; /* Adjust the value to make the form larger */
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 20px; /* Add margin to create spacing from the edges */
+    }
+</style>
+
+<script>
+    function showAlert() {
+        alert("Create button clicked!");
+    }
+</script>
+
+<div class="form-container">
+    <div class="form-wrapper">
+        <h1>Create Slider</h1>
+        <form method="post" asp-action="Create" enctype="multipart/form-data" class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="Title1" class="form-label">Title 1</label>
+                <input class="form-control" asp-for="Title1" placeholder="Title 1">
+                <span class="text-danger" asp-validation-for="Title1"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Title2" class="form-label">Title 2</label>
+                <input class="form-control" asp-for="Title2" placeholder="Title 2">
+                <span class="text-danger" asp-validation-for="Title2"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Title3" class="form-label">Title 3</label>
+                <input class="form-control" asp-for="Title3" placeholder="Title 3">
+                <span class="text-danger" asp-validation-for="Title3"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="SalePrice" class="form-label">SalePrice</label>
+                <input class="form-control" asp-for="SalePrice" placeholder="SalePrice">
+                <span class="text-danger" asp-validation-for="SalePrice"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <input class="form-control" asp-for="Description" placeholder="Description">
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="URL" class="form-label">URL</label>
+                <input class="form-control" asp-for="URL" placeholder="URL">
+                <span class="text-danger" asp-validation-for="URL"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="FromFile" class="form-label">FromFile</label>
+                <input type="file" class="form-control" asp-for="FromFile" placeholder="FromFile">
+                <span class="text-danger" asp-validation-for="FromFile"></span>
+            </div>
+
+            <div class="col-12" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary custom-button" onclick="showAlert()">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿
+@model CallActionArea
+@{
+	ViewData["Title"] = "Update";
+}
+
+<h1>Update Call Action Area</h1>
+<div>
+	<form method="post" asp-action="update" enctype="multipart/form-data">
+		<div class="row">
+		<div class="mb-3 col-md-3">
+			<label asp-for="Title1" class="form-label">Title1</label>
+			<input  class="form-control" asp-for="Title1" placeholder="Title">
+			<span class="text-danger" asp-validation-for="Title1"></span>
+		</div>
+		<div class="mb-3 col-md-3">
+			<label asp-for="Title2" class="form-label">Title2</label>
+			<input  class="form-control" asp-for="Title2" placeholder="Title2">
+			<span class="text-danger" asp-validation-for="Title2"></span>
+		</div>
+		<div class="mb-3 col-md-3">
+			<label asp-for="Title3" class="form-label">Title3</label>
+			<input  class="form-control" asp-for="Title3" placeholder="Title3">
+			<span class="text-danger" asp-validation-for="Title3"></span>
+		</div>
+		<div class="mb-3 col-md-3">
+			<label asp-for="Title4" class="form-label">Title4</label>
+			<input  class="form-control" asp-for="Title4" placeholder="Title4">
+			<span class="text-danger" asp-validation-for="Title4"></span>
+		</div>
+		<div class="mb-3 col-md-2">
+			<label asp-for="URL" class="form-label">URL</label>
+			<input  class="form-control" asp-for="URL" placeholder="URL">
+			<span class="text-danger" asp-validation-for="URL"></span>
+		</div>
+			<div style ="display:flex; justify-content:center;align-items:center">
+
+		     <button type="submit" class="btn btn-primary">Update</button>
+	</form>
+</div>
+
+
+

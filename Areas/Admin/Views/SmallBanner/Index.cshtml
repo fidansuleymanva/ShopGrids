@@ -1,0 +1,88 @@
+﻿@model PaginationList<SmallBanner>
+@{
+	int counter = (Model.Page - 1) * 3;
+}
+
+<div class="container-fluid">
+	<div class="d-flex justify-content-between">
+		<h1>Small Banner</h1>
+
+		<a asp-action="create" asp-controller="SmallBanner" class="btn btn-outline-info">Create</a>
+
+	</div>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Title1</th>
+				<th scope="col">Title2</th>
+				<th scope="col">SalaPrice</th>
+				<th scope="col">Img</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				counter++;
+				<tr>
+					<th scope="row">@counter</th>
+					<td>@item.Title1</td>
+					<td>@item.Title2</td>
+					<td>@item.SalePrice</td>
+
+					<td>
+						<img style="width:150px" src="~/uploads/smallbanner/@item.Image"></img>
+					</td>
+					<td>
+						<div class="row ">
+							<a asp-controller="SmallBanner" asp-action="Update" asp-route-id="@item.Id">
+								<button type="button" class="mt-2 btn  btn-info">
+									<i class="bi bi-pencil-square"></i>
+									Update
+								</button>
+							</a>
+						</div>
+						<div class="row ">
+							<a asp-controller="SmallBanner" asp-action="Delete" asp-route-id="@item.Id">
+								<button type="button" class="mt-2 btn  btn-outline-danger">
+									<i class="bi bi-trash"></i>
+									Delete
+								</button>
+							</a>
+						</div>
+					</td>
+				</tr>
+			}
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:flex; justify-content:center:left">
+	<form>
+		<nav aria-label="...">
+			<ul class="pagination">
+				@if (Model.HasPrevious)
+				{
+					<li class="page-item">
+						<a asp-action="index" asp-controller="SmallBanner" asp-route-page="@(Model.Page-1)" class="page-link">Previous</a>
+					</li>
+				}
+				@for (int i = 1; i <= Model.TotalPage; i++)
+				{
+					<li class="page-item @(Model.Page == i ? "active" : "")"><a class="page-link" asp-action="index" asp-controller="SmallBanner" asp-route-page="@i">@i</a></li>
+				}
+				@if (Model.HasNext)
+				{
+					<li class="page-item">
+						<a asp-action="index" asp-controller="SmallBanner" asp-route-page="@(Model.Page+1)" class="page-link">Next</a>
+					</li>
+				}
+			</ul>
+		</nav>
+	</form>
+
+</div>
